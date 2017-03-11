@@ -13,7 +13,7 @@ let globalStore = configureStore();
 render(
   <Provider store={globalStore}>
     <Router history={hashHistory}>
-      <IndexRoute component={HomePage} />
+      <Route path="/" component={HomePage} />
       <Route path="/camp-list" component={CampList} />
     </Router>
   </Provider>
