@@ -3,7 +3,7 @@ import {List} from 'immutable';
 import {Location} from '~/state/records';
 
 // actions
-export const LOAD_LOCATIONS = 'LOAD_LOCATIONS';
+export const LOAD_LOCATION_LIST = 'LOAD_LOCATION_LIST';
 export let loadLocations = (state, data) => {
   let plainToImmutableEntry = (locationJSON) => new Location(locationJSON);
   return new List(data.map(plainToImmutableEntry));
@@ -12,7 +12,7 @@ export let loadLocations = (state, data) => {
 // reducer
 const locationList = (state = List(), {type, data}) => {
   switch (type) {
-  case LOAD_LOCATIONS:
+  case LOAD_LOCATION_LIST:
     return loadLocations(state, data);
   default:
     return state;
