@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {List} from 'immutable';
 import {Camp} from '~/state/records';
 
