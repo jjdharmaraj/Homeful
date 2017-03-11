@@ -1,20 +1,20 @@
 import reqwest from 'reqwest';
-import {LOCATIONS_ENDPOINT} from '~/configuration';
-import {LOAD_LOCATION_LIST} from '~/state/reducers/locationList';
+import {CAMP_LIST_ENDPOINT} from '~/configuration';
+import {LOAD_CAMP_LIST} from '~/state/reducers/campList';
 
 // actions
-let loadLocationListActionCreator = (data) => ({type: LOAD_LOCATION_LIST, data});
+let loadCampListActionCreator = (data) => ({type: LOAD_CAMP_LIST, data});
 
 // thunks
-export let ajaxFetchLocationList = (dispatch) => {
-  let loadLocationListFromJson = async () => {
+export let ajaxFetchCampList = (dispatch) => {
+  let loadCampListFromJson = async () => {
     try {
-      let locationList = JSON.parse(await reqwest(LOCATIONS_ENDPOINT));
-      return dispatch(loadLocationListActionCreator(locationList));
+      let campList = JSON.parse(await reqwest(CAMP_LIST_ENDPOINT));
+      return dispatch(loadCampListActionCreator(campList));
     } catch (err) {
       throw new Error(err);
     }
   };
 
-  return loadLocationListFromJson();
+  return loadCampListFromJson();
 };

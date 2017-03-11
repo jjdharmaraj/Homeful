@@ -1,6 +1,6 @@
 import {Record} from 'immutable';
 
-export const Location = new Record({
+export const Camp = new Record({
   Id: 0,
   Name: '',
   Latitude: '',

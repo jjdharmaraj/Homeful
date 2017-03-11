@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles.scss';
 
-let View = ({locationList}) => (
+let View = ({campList}) => (
   <div className={styles.container}>
-    something goes here... {JSON.stringify(locationList)}
+    something goes here... {JSON.stringify(campList)}
   </div>
 );
 
