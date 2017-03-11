@@ -7,7 +7,7 @@ import View from './view';
 class Layout extends Component {
   componentDidMount() {
     let {dispatch} = this.props;
-    dispatch(ajaxFetchLocationList());
+    dispatch(ajaxFetchLocationList);
   }
 
   render() {

@@ -8,10 +8,8 @@ import '~/theme/base.scss';
 let appContainer = document.querySelector('.App');
 let globalStore = configureStore();
 
-let Root = ({store}) => (
-  <Provider store={store}>
+render(
+  <Provider store={globalStore}>
     <Layout />
   </Provider>
-);
-
-render(<Root store={globalStore}/>, appContainer);
+, appContainer);

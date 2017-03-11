@@ -3,21 +3,18 @@ import {LOCATIONS_ENDPOINT} from '~/configuration';
 import {LOAD_LOCATION_LIST} from '~/state/reducers/locationList';
 
 // actions
-
-let makeActionCreator = (type) => (data) => ({type, data});
-export let loadLocationList = makeActionCreator(LOAD_LOCATION_LIST);
+let loadLocationListActionCreator = (data) => ({type: LOAD_LOCATION_LIST, data});
 
 // thunks
-
-export let ajaxFetchLocationList = () => (dispatch) => {
-  let loadLocationListFromJson = async (...funcs) => {
+export let ajaxFetchLocationList = (dispatch) => {
+  let loadLocationListFromJson = async () => {
     try {
       let locationList = JSON.parse(await reqwest(LOCATIONS_ENDPOINT));
-      funcs.reduce((value, func) => func(value), locationList);
+      return dispatch(loadLocationListActionCreator(locationList));
     } catch (err) {
       throw new Error(err);
     }
   };
 
-  return loadLocationListFromJson(loadLocationList, dispatch);
+  return loadLocationListFromJson();
 };
