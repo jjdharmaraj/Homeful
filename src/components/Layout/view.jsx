@@ -1,9 +1,10 @@
 import React from 'react';
+import Test from '~/components/test';
 import styles from './styles.scss';
 
 let View = ({locationList}) => (
   <div className={styles.container}>
-    something goes here... {JSON.stringify(locationList)}
+    <Test /> {JSON.stringify(locationList)}
   </div>
 );
 

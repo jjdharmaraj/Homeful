@@ -12,7 +12,7 @@ class Layout extends Component {
 
   render() {
     return (
-      <View {...this.props} />
+      <View locationList={[1,2]} />
     );
   }
 }
