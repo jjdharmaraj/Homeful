@@ -1,17 +1,20 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import configureStore from '~/state/configureStore';
-import Layout from '~/components/Layout';
+import HomePage from '~/components/HomePage';
+import CampList from '~/components/CampList';
 import '~/theme/base.scss';
 
 let appContainer = document.querySelector('.App');
 let globalStore = configureStore();
 
-let Root = ({store}) => (
-  <Provider store={store}>
-    <Layout />
+render(
+  <Provider store={globalStore}>
+    <Router history={hashHistory}>
+      <IndexRoute component={HomePage} />
+      <Route path="/camp-list" component={CampList} />
+    </Router>
   </Provider>
-);
-
-render(<Root store={globalStore}/>, appContainer);
+, appContainer);

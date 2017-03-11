@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import locationList, * as fromLocationList from './locationList';
+import campList, * as fromCampList from './campList';
 
 let rootReducer = combineReducers({
-  locationList
+  campList
 });
 
 export default rootReducer;
 
 // root selectors (function of entire state)
-export let getLocationList = (state) => fromLocationList.getLocationList(state.locationList);
+export let getCampList = (state) => fromCampList.getCampList(state.campList);
