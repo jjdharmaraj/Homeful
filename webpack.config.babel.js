@@ -120,8 +120,8 @@ let config = {
 };
 
 const {
-  NODE_ENV,
-  PORT
+  PORT,
+  NODE_ENV
 } = process.env; // eslint-disable-line no-process-env
 
 if (NODE_ENV === 'development') {
